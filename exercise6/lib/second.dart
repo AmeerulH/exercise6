@@ -79,6 +79,7 @@ class _SecondExercise extends State<SecondExercise> {
                   builder: (context, state) {
                     return Container(
                       margin: const EdgeInsets.only(top: 10, bottom: 10),
+                      padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.black,
@@ -87,7 +88,13 @@ class _SecondExercise extends State<SecondExercise> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Text('Capatalised: $state')],
+                        children: [
+                          Text(
+                            'Capatalised: $state',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )
+                        ],
                       ),
                     );
                   }),

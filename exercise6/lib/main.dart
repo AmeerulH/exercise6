@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+            SizedBox(height: 10),
             ElevatedButton(
               child: Text('Second Exercise'),
               onPressed: () {
