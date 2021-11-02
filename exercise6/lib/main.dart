@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'CounterCubit/counter_cubit.dart';
+import 'first.dart';
+import 'second.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,10 +17,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: BlocProvider(
-          create: (context) => CounterCubit(),
-          child: MyHomePage(),
-        ));
+        home: const MyHomePage());
   }
 }
 
@@ -48,49 +42,24 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<CounterCubit, int>(
-                bloc: context.read<CounterCubit>(),
-                builder: (context, state) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Current Count:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 40),
-                      ),
-                      Text(
-                        '$state',
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ],
-                  );
-                }),
-            BlocBuilder(
-                bloc: context.read<CounterCubit>(),
-                builder: (context, state) {
-                  return Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FloatingActionButton(
-                          onPressed: () {
-                            context.read<CounterCubit>().incrementCounter();
-                          },
-                          tooltip: 'Increment',
-                          child: const Icon(Icons.expand_less),
-                        ),
-                        FloatingActionButton(
-                          onPressed: () {
-                            context.read<CounterCubit>().decrementCounter();
-                          },
-                          tooltip: 'Decrement',
-                          child: const Icon(Icons.expand_more),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
+            ElevatedButton(
+              child: Text('First Exercise'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FirstExercisePage()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Second Exercise'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondExercisePage()),
+                );
+              },
+            )
           ],
         ),
       ),
